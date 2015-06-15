@@ -37,6 +37,9 @@ class TomcatRunner:
         self.__stop_servers()
         self.__remove_homes()
 
+    def restart(self):
+        self.deployer.restart('localhost')
+
     def __validate_tomcat_installation(self):
         for f in [ 'bin/catalina.sh', 'lib/catalina.jar' ]:
             if not os.path.exists(os.path.join(self.tomcat_dir, f)):

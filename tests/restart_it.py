@@ -15,13 +15,13 @@ class ClusterDeployerIT(TomcatIntegrationTestCase):
 
     def testSimpleRestartWorks(self):
         self.enable_conditional()
-        self.deploy_war('conditional.war', '/conditional')
+        self.deploy_war('conditional.war', '/simple')
         self.restart()
 
     def testMultipleAppRestartWorks(self):
         apps = {}
         self.enable_conditional()
-        self.add_war(apps, 'conditional.war',   '/conditional')
+        self.add_war(apps, 'helo.war',   '/multi1')
         self.add_war(apps, 'goodbye.war', '/multi2')
         self.deploy(apps)
         self.restart()
